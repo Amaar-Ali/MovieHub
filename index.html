@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Hub - Login</title>
+  <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <h1>Welcome to Movie Hub</h1>
+      <p>Please enter your password to continue</p>
+      <form onsubmit="return checkPassword(event)">
+        <input type="password" id="passwordInput" placeholder="Enter password" required>
+        <button type="submit" class="login-btn">Login</button>
+      </form>
+    </div>
+  </div>
+  
+  <script>
+    function checkPassword(event) {
+      event.preventDefault();
+      const password = document.getElementById("passwordInput").value;
+      if (password === "1002") {
+        window.location.href = "dashboard.html";
+      } else {
+        alert("Incorrect Password. Please try again.");
+      }
+    }
+  </script>
+</body>
+</html>

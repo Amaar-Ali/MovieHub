@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collections - Movie Hub</title>
+  <link rel="stylesheet" href="../css/collections.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="top-nav">
+    <div class="logo">
+      <h1>Movie Hub</h1>
+    </div>
+    <nav>
+      <a href="dashboard.html">⬅ Back</a>
+    </nav>
+  </header>
+  <br>
+  <br>
+
+  <!-- Main Content Section -->
+  <section class="movies-section">
+    <div class="container">
+      <h2>Movie Collections</h2>
+      <br>
+      <br>
+      <br>
+      <div id="collections-list" class="movies-container"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Movie Hub. All Rights Reserved.</p>
+      <nav>
+        <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    const collections = [
+      { name: "Marvel Cinematic Universe", image: "../assets/images/marvel.png", link: "marvel.html" },
+      { name: "Harry Potter", image: "../assets/images/hp.png", link: "hp.html" },
+    ];
+
+    const container = document.getElementById("collections-list");
+    collections.forEach(col => {
+      const div = document.createElement("div");
+      div.classList.add('movie-item');
+      div.innerHTML = `
+        <div class="movie-img">
+          <img src="${col.image}" alt="${col.name}" width="100%">
+        </div>
+        <div class="movie-info">
+          <h4>${col.name}</h4>
+          <a href="${col.link}"><button class="btn">View</button></a>
+        </div>
+      `;
+      container.appendChild(div);
+    });
+  </script>
+</body>
+</html>

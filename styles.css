@@ -1,0 +1,354 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  background-color: #141414;
+  color: #fff;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Light Mode Theme */
+body.light-mode {
+  background-color: #f5f5f5;
+  color: #141414;
+}
+
+/* Top Navigation Bar */
+.top-nav {
+  width: 100%;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  background: rgba(20, 20, 20, 0.9);
+  transition: background 0.3s;
+}
+
+body.light-mode .top-nav {
+  background: rgba(245, 245, 245, 0.9);
+}
+
+.top-nav .nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo-container h1 {
+  font-size: 1.8rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+body.light-mode .nav-links a {
+  color: #141414;
+}
+
+.nav-links a:hover {
+  color: #00aaff;
+}
+
+.mode-toggle {
+  margin-left: 20px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #00aaff;
+  color: #fff;
+  transition: background 0.3s;
+}
+
+body.light-mode .mode-toggle {
+  background-color: #005f99;
+  color: #fff;
+}
+
+/* Hero Banner */
+.hero-banner {
+  height: 80vh;
+  margin-top: 80px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero-banner .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-banner .hero-content {
+  text-align: center;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn {
+  padding: 15px 30px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.play-btn {
+  background: #00aaff;
+  color: #fff;
+}
+
+.play-btn:hover {
+  background: #0088cc;
+}
+
+.info-btn {
+  background: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+.info-btn:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* Movies Section */
+.movies-section {
+  padding: 40px 20px;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.movies-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Ensure 3 movies per row */
+  gap: 20px; /* Adjusted gap between cards */
+  padding: 20px;
+}
+
+/* Adjusted movie card container for bigger cards */
+.movie-card {
+  background-color: #f5f5f7;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 15px;
+  margin: 0; /* Removed margin for no gap between cards */
+  transition: transform 0.3s;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px); /* Hover effect */
+}
+
+/* Movie image styling */
+.movie-image {
+  width: 100%;
+  height: 250px; /* Fixed height for the image */
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Movie title and info */
+.movie-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #424245;
+  text-align: center;
+}
+
+.movie-rating {
+  font-size: 14px;
+  color: #f5a623;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.movie-description {
+  font-size: 12px;
+  color: #7a7a7a;
+  text-align: center;
+  margin-top: 10px;
+  height: 50px; /* Limit the description's height */
+  overflow: hidden; /* Hide any overflow in description */
+  text-overflow: ellipsis; /* Add ellipsis for overflow text */
+}
+
+/* Watch Now button */
+.watch-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.watch-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Movie Details Page */
+.movie-details-section {
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.movie-details-container {
+  background-color: #1f1f1f;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 800px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movie-details-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movie-details-card img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.movie-details-card h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.movie-details-card p {
+  font-size: 1rem;
+  margin: 5px 0;
+  text-align: center;
+}
+
+.action-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.action-buttons .btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.watch-btn {
+  background: #00aaff;
+  color: #fff;
+}
+
+.watch-btn:hover {
+  background: #0088cc;
+}
+
+.fav-btn {
+  background: #00aaff;
+  color: #fff;
+}
+
+.fav-btn:hover {
+  background: #0088cc;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: #141414;
+  border-top: 1px solid #0f0f0f;
+}
+
+.footer p {
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-banner .hero-content .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-banner .hero-content .hero-description {
+    font-size: 1rem;
+  }
+
+  .movies-container {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+
+  .poster-wrapper img {
+    height: 300px; /* Adjusted for responsiveness */
+  }
+}
+/* Movie image styling */
+.movie-image {
+  width: 100%; /* Full width of the card */
+  height: 100%; /* Make the image occupy the full height of the card */
+  object-fit: cover; /* This ensures that the image fills the space without distortion */
+  border-radius: 8px;
+}

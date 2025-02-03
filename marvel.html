@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marvel Movies - Movie Hub</title>
+  <link rel="stylesheet" href="../css/marvel.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="top-nav">
+    <div class="logo">
+      <h1>Movie Hub</h1>
+    </div>
+    <nav>
+      <a href="collections.html">⬅ Back to Collections</a>
+    </nav>
+  </header>
+
+  <!-- Main Content Section -->
+  <section class="movies-section">
+    <div class="container">
+      <h2>Marvel Movies</h2>
+      <div id="marvel-movies-list" class="movies-container"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Movie Hub. All Rights Reserved.</p>
+      <nav>
+        <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+
+    const marvelMovies = [
+  { name: "Iron Man", image: "../assets/images/ironman.jpg", link: "https://embed.su/embed/movie/1726", rating: "7.9/10", description: "The first MCU film that introduced Tony Stark." },
+  
+  { name: "The Incredible Hulk", image: "../assets/images/incredible-hulk.jpg", link: "incredible-hulk.html", rating: "6.7/10", description: "Bruce Banner is hunted by the US government while seeking a cure for his condition." },
+  
+  { name: "Iron Man 2", image: "../assets/images/iron-man2.jpg", link: "iron-man2.html", rating: "7.0/10", description: "Tony Stark faces new challenges while dealing with his own legacy." },
+  
+  { name: "Thor", image: "../assets/images/thor.jpg", link: "thor.html", rating: "7.0/10", description: "Thor, the God of Thunder, is banished to Earth as punishment for his arrogance." },
+  
+  { name: "Captain America: The First Avenger", image: "../assets/images/captain-america.jpg", link: "captain-america.html", rating: "6.9/10", description: "Steve Rogers becomes the super soldier Captain America to fight Hydra in World War II." },
+  
+  { name: "The Avengers", image: "../assets/images/avengers.jpg", link: "the-avengers.html", rating: "8.0/10", description: "Earth's mightiest heroes come together to defeat Loki and his alien army." },
+  
+  { name: "Iron Man 3", image: "../assets/images/ironman3.jpg", link: "iron-man3.html", rating: "7.2/10", description: "Tony Stark faces a new foe, the Mandarin, and deals with PTSD after the events of The Avengers." },
+  
+  { name: "Thor: The Dark World", image: "../assets/images/thordarkworld.jpg", link: "thor-dark-world.html", rating: "6.9/10", description: "Thor must unite with Loki to save the Nine Realms from a dark force." },
+  
+  { name: "Captain America: The Winter Soldier", image: "../assets/images/wintersoldier.png", link: "winter-soldier.html", rating: "7.8/10", description: "Captain America faces his greatest challenge when his old friend Bucky Barnes is revealed as the Winter Soldier." },
+  
+  { name: "Guardians of the Galaxy", image: "../assets/images/guardiansofthegalaxy.jpg", link: "guardians-of-the-galaxy.html", rating: "8.0/10", description: "A group of misfit heroes join forces to stop a powerful villain, Ronan the Accuser." },
+  
+  { name: "Avengers: Age of Ultron", image: "../assets/images/ageofultron.jpg", link: "age-of-ultron.html", rating: "7.3/10", description: "The Avengers must face the villainous Ultron, who seeks to destroy humanity." },
+  
+  { name: "Ant-Man", image: "../assets/images/ant-man.jpg", link: "ant-man.html", rating: "7.3/10", description: "Scott Lang becomes the Ant-Man, a hero who can shrink to the size of an ant." },
+  
+  { name: "Captain America: Civil War", image: "../assets/images/civil-war.jpg", link: "civil-war.html", rating: "7.8/10", description: "The Avengers split into two factions, led by Captain America and Iron Man, over the Sokovia Accords." },
+  
+  { name: "Doctor Strange", image: "../assets/images/doctor-strange.jpg", link: "doctor-strange.html", rating: "7.5/10", description: "Dr. Stephen Strange learns the mystic arts to defend the world from supernatural threats." },
+  
+  { name: "Guardians of the Galaxy Vol. 2", image: "../assets/images/guardians-2.jpg", link: "guardians-of-the-galaxy-vol-2.html", rating: "7.6/10", description: "The Guardians continue their cosmic adventures while dealing with Peter Quill’s long-lost father." },
+  
+  { name: "Spider-Man: Homecoming", image: "../assets/images/spider-man-homecoming.jpg", link: "spider-man-homecoming.html", rating: "7.4/10", description: "Peter Parker balances life as a high school student and a superhero." },
+  
+  { name: "Thor: Ragnarok", image: "../assets/images/thor-ragnarok.jpg", link: "thor-ragnarok.html", rating: "7.9/10", description: "Thor teams up with Hulk and his brother Loki to stop Ragnarok, the destruction of Asgard." },
+  
+  { name: "Black Panther", image: "../assets/images/black-panther.jpg", link: "black-panther.html", rating: "7.3/10", description: "T'Challa must defend the throne of Wakanda and face his cousin Erik Killmonger." },
+  
+  { name: "Avengers: Infinity War", image: "../assets/images/infinity-war.jpg", link: "infinity-war.html", rating: "8.4/10", description: "The Avengers and their allies fight to stop Thanos from collecting the Infinity Stones." },
+  
+  { name: "Ant-Man and the Wasp", image: "../assets/images/ant-man-and-the-wasp.jpg", link: "ant-man-and-the-wasp.html", rating: "7.0/10", description: "Ant-Man teams up with the Wasp to rescue Janet Van Dyne from the quantum realm." },
+  
+  { name: "Captain Marvel", image: "../assets/images/captain-marvel.jpg", link: "captain-marvel.html", rating: "6.8/10", description: "Carol Danvers becomes the powerful Captain Marvel to fight an intergalactic war." },
+  
+  { name: "Avengers: Endgame", image: "../assets/images/endgame.jpg", link: "endgame.html", rating: "8.4/10", description: "The Avengers attempt to reverse the destruction caused by Thanos in Infinity War." },
+  
+  { name: "Spider-Man: Far From Home", image: "../assets/images/far-from-home.jpg", link: "spider-man-far-from-home.html", rating: "7.5/10", description: "Peter Parker goes on a European vacation but faces a new threat in the form of Mysterio." },
+  
+  { name: "Black Widow", image: "../assets/images/black-widow.jpg", link: "black-widow.html", rating: "6.8/10", description: "Natasha Romanoff faces her past and confronts a dangerous conspiracy." },
+  
+  { name: "Shang-Chi and the Legend of the Ten Rings", image: "../assets/images/shang-chi.jpg", link: "shang-chi.html", rating: "7.9/10", description: "Shang-Chi must confront his past and defeat the leader of the Ten Rings." },
+  
+  { name: "Eternals", image: "../assets/images/eternals.jpg", link: "eternals.html", rating: "6.9/10", description: "A group of immortal heroes must protect Earth from a threat that has existed for centuries." },
+  
+  { name: "Spider-Man: No Way Home", image: "../assets/images/spider-man-no-way-home.jpg", link: "spider-man-no-way-home.html", rating: "8.3/10", description: "Spider-Man faces multiversal chaos when villains from alternate universes enter his world." },
+  
+  { name: "Doctor Strange in the Multiverse of Madness", image: "../assets/images/doctor-strange-multiverse.jpg", link: "doctor-strange-multiverse.html", rating: "7.5/10", description: "Doctor Strange must protect the multiverse from a dangerous threat." },
+  
+  { name: "Thor: Love and Thunder", image: "../assets/images/thor-love-and-thunder.jpg", link: "thor-love-and-thunder.html", rating: "6.3/10", description: "Thor teams up with Valkyrie, Korg, and Jane Foster to stop Gorr the God Butcher." },
+  
+  { name: "Black Panther: Wakanda Forever", image: "../assets/images/wakanda-forever.jpg", link: "wakanda-forever.html", rating: "7.0/10", description: "Wakanda must defend itself and find a new leader after the death of T'Challa." },
+  
+  { name: "Ant-Man and the Wasp: Quantumania", image: "../assets/images/ant-man-quantumania.jpg", link: "ant-man-quantumania.html", rating: "7.2/10", description: "Ant-Man and the Wasp journey into the Quantum Realm to face a new threat: Kang the Conqueror." }
+];
+
+    
+
+    const container = document.getElementById("marvel-movies-list");
+    marvelMovies.forEach(movie => {
+      const div = document.createElement("div");
+      div.classList.add('movie-item');
+      div.innerHTML = `
+        <div class="movie-img">
+          <img src="${movie.image}" alt="${movie.name}" width="100%">
+        </div>
+        <div class="movie-info">
+          <h4>${movie.name}</h4>
+          <p>Rating: ${movie.rating}</p>
+          <p>${movie.description}</p>
+          <a href="${movie.link}"><button class="btn">Watch Now</button></a>
+        </div>
+      `;
+      container.appendChild(div);
+    });
+  </script>
+</body>
+</html>
