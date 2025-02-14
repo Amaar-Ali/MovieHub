@@ -13,7 +13,7 @@
       <h1>Movie Hub</h1>
     </div>
     <nav>
-      <a href="dashboard.html">⬅ Back</a>
+      <a href="/dashboard.html">⬅ Back</a>
     </nav>
   </header>
   <br>
@@ -35,15 +35,15 @@
     <div class="footer-content">
       <p>&copy; 2025 Movie Hub. All Rights Reserved.</p>
       <nav>
-        <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a>
+        <a href="/#">Terms of Service</a> | <a href="/#">Privacy Policy</a>
       </nav>
     </div>
   </footer>
 
   <script>
     const collections = [
-      { name: "Marvel Cinematic Universe", image: "../assets/images/marvel.png", link: "marvel.html" },
-      { name: "Harry Potter", image: "../assets/images/hp.png", link: "hp.html" },
+      { name: "Marvel Cinematic Universe", image: "marvel.png", link: "marvel.html" },
+      { name: "Harry Potter", image: "hp.png", link: "hp.html" },
     ];
 
     const container = document.getElementById("collections-list");
@@ -56,7 +56,7 @@
         </div>
         <div class="movie-info">
           <h4>${col.name}</h4>
-          <a href="${col.link}"><button class="btn">View</button></a>
+          <a href="/${col.link}"><button class="btn">View</button></a>
         </div>
       `;
       container.appendChild(div);
