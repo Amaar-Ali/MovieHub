@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Harry Potter Movies - Movie Hub</title>
-  <link rel="stylesheet" href="../css/hp.css">
+  <link rel="stylesheet" href="hp.css">
 </head>
 <body>
   <!-- Header -->
@@ -13,7 +13,7 @@
       <h1>Movie Hub</h1>
     </div>
     <nav>
-      <a href="collections.html">⬅ Back to Collections</a>
+      <a href="/collections.html">⬅ Back to Collections</a>
     </nav>
   </header>
 
@@ -30,21 +30,21 @@
     <div class="footer-content">
       <p>&copy; 2025 Movie Hub. All Rights Reserved.</p>
       <nav>
-        <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a>
+        <a href="/#">Terms of Service</a> | <a href="/#">Privacy Policy</a>
       </nav>
     </div>
   </footer>
 
   <script>
     const hpMovies = [
-      { name: "Harry Potter and the Sorcerer's Stone", image: "../assets/images/hp-1.jpeg", link: "harry-potter-1.html", rating: "7.6/10", description: "Harry discovers he is a wizard and attends Hogwarts School of Witchcraft and Wizardry." },
-      { name: "Harry Potter and the Chamber of Secrets", image: "../assets/images/hp-2.jpg", link: "harry-potter-2.html", rating: "7.4/10", description: "Harry returns to Hogwarts and faces a new danger as the Chamber of Secrets is opened." },
-      { name: "Harry Potter and the Prisoner of Azkaban", image: "../assets/images/hp-3.jpg", link: "harry-potter-3.html", rating: "7.8/10", description: "Harry learns about his godfather, Sirius Black, and uncovers secrets from his past." },
-      { name: "Harry Potter and the Goblet of Fire", image: "../assets/images/hp-4.jpg", link: "harry-potter-4.html", rating: "7.7/10", description: "Harry competes in the dangerous Triwizard Tournament and faces dark forces." },
-      { name: "Harry Potter and the Order of the Phoenix", image: "../assets/images/hp-5.jpg", link: "harry-potter-5.html", rating: "7.5/10", description: "Harry forms 'Dumbledore's Army' to fight against the dark forces taking over Hogwarts." },
-      { name: "Harry Potter and the Half-Blood Prince", image: "../assets/images/hp-6.jpg", link: "harry-potter-6.html", rating: "7.6/10", description: "Harry discovers important secrets about Voldemort's past while facing personal challenges." },
-      { name: "Harry Potter and the Deathly Hallows: Part 1", image: "../assets/images/hp-7.jpg", link: "harry-potter-7-1.html", rating: "8.0/10", description: "Harry, Ron, and Hermione go on a mission to destroy Voldemort's Horcruxes." },
-      { name: "Harry Potter and the Deathly Hallows: Part 2", image: "../assets/images/hp-8.jpg", link: "harry-potter-7-2.html", rating: "8.1/10", description: "The final battle between Harry Potter and Voldemort unfolds in the Battle of Hogwarts." }
+      { name: "Harry Potter and the Sorcerer's Stone", image: "hp-1.jpeg", link: "https://embed.su/embed/movie/671", rating: "7.6/10", description: "Harry discovers he is a wizard and attends Hogwarts School of Witchcraft and Wizardry." },
+  { name: "Harry Potter and the Chamber of Secrets", image: "hp-2.jpg", link: "https://embed.su/embed/movie/672", rating: "7.4/10", description: "Harry returns to Hogwarts and faces a new danger as the Chamber of Secrets is opened." },
+  { name: "Harry Potter and the Prisoner of Azkaban", image: "hp-3.jpg", link: "https://embed.su/embed/movie/673", rating: "7.8/10", description: "Harry learns about his godfather, Sirius Black, and uncovers secrets from his past." },
+  { name: "Harry Potter and the Goblet of Fire", image: "hp-4.jpg", link: "https://embed.su/embed/movie/674", rating: "7.7/10", description: "Harry competes in the dangerous Triwizard Tournament and faces dark forces." },
+  { name: "Harry Potter and the Order of the Phoenix", image: "hp-5.jpg", link: "https://embed.su/embed/movie/675", rating: "7.5/10", description: "Harry forms 'Dumbledore's Army' to fight against the dark forces taking over Hogwarts." },
+  { name: "Harry Potter and the Half-Blood Prince", image: "hp-6.jpg", link: "https://embed.su/embed/movie/767", rating: "7.6/10", description: "Harry discovers important secrets about Voldemort's past while facing personal challenges." },
+  { name: "Harry Potter and the Deathly Hallows: Part 1", image: "hp-7.jpg", link: "https://embed.su/embed/movie/12444", rating: "8.1/10", description: "Harry, Ron, and Hermione go on a quest to destroy the Horcruxes and defeat Voldemort." },
+  { name: "Harry Potter and the Deathly Hallows: Part 2", image: "hp-8.jpg", link: "https://embed.su/embed/movie/12445", rating: "8.1/10", description: "The final battle between Harry and Voldemort unfolds in an epic conclusion to the series." },
     ];
 
     const container = document.getElementById("hp-movies-list");
@@ -59,7 +59,7 @@
           <h4>${movie.name}</h4>
           <p>Rating: ${movie.rating}</p>
           <p>${movie.description}</p>
-          <a href="${movie.link}"><button class="btn">Watch Now</button></a>
+          <a href="/${movie.link}"><button class="btn">Watch Now</button></a>
         </div>
       `;
       container.appendChild(div);
