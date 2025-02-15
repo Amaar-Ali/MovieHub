@@ -34,13 +34,13 @@ body {
 }
 
 .top-nav nav a:hover {
-    color: #00b4cc;  /* Accent Color */
+    color: #141414;  /* Accent Color */
 }
 
 /* Movie Collections Section */
 .movies-section {
     padding: 50px 30px;
-    background-color: #1f1f1f;  /* Dark Mode */
+    background-color: #141414;  /* Dark Mode */
 }
 
 .movies-section h2 {
