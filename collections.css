@@ -34,13 +34,13 @@ body {
 }
 
 .top-nav nav a:hover {
-    color: #141414;  /* Accent Color */
+    color: #00b4cc;  /* Accent Color */
 }
 
 /* Movie Collections Section */
 .movies-section {
     padding: 50px 30px;
-    background-color: #141414;  /* Dark Mode */
+    background-color: #1f1f1f;  /* Dark Mode */
 }
 
 .movies-section h2 {
@@ -159,4 +159,5 @@ footer nav a:hover {
     height: auto;
     max-height: 450px; /* Ensure it fits within the card */
   }
-  
+
+
