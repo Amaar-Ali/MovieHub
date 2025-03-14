@@ -55,6 +55,67 @@
 ];
 
   </script>
+ <style>
+  /* Search Bar Styling */
+  .search-container {
+    position: fixed; /* Keeps it in place */
+    top: 70px; /* Adjusted position below header */
+    right: 50%;
+    transform: translateX(50%);
+    display: none;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 12px;
+    align-items: center;
+    z-index: 1000; /* Ensures it stays on top */
+    width: 280px;
+  }
+
+  .search-container input {
+    border: none;
+    outline: none;
+    padding: 8px 12px;
+    font-size: 16px;
+    width: 200px;
+    border-radius: 20px;
+    z-index: 1001;
+  }
+
+  .search-container button {
+    background: #0088CC; /* Same as explore button */
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 5px;
+    z-index: 1001;
+  }
+
+  .search-container button:hover {
+    background: #e84118;
+  }
+
+  /* Close Button Styling */
+  .close-search {
+    background: #0088CC; /* Same as explore button */
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 8px;
+    z-index: 1001;
+  }
+
+  .close-search:hover {
+    background: #e84118;
+  }
+</style>
+
 </head>
 <body>
   <!-- Top Navigation Bar -->
@@ -68,10 +129,16 @@
         <a href="collections.html">Collections</a>
         <a href="info.html">About Us</a>
         <a href="admin-login.html">Admin</a>
-        <a href="search.html" class="search-icon">🔍</a>
+        <a href="#" class="search-icon" onclick="toggleSearch()">🔍</a>
       </nav>
     </div>
   </header>
+
+  <!-- Search Bar -->
+  <div class="search-container" id="searchContainer">
+    <input type="text" id="searchInput" placeholder="Search movies..." onkeyup="searchMovies()" />
+    <button onclick="closeSearch()">✖</button>
+  </div>
 
   <!-- Hero Banner -->
   <section class="hero-banner" style="background-image: url('dashboardbg.jpg');">
@@ -117,5 +184,98 @@
   </footer>
 
   <script src="../js/dashboard.js"></script>
+  <script>
+    // Function to toggle search bar visibility
+    function toggleSearch() {
+  let searchBox = document.getElementById('searchContainer');
+  searchBox.style.display = 'flex';
+  document.getElementById('searchInput').focus(); // Auto-focus on input
+}
+
+function closeSearch() {
+  let searchBox = document.getElementById('searchContainer');
+  searchBox.style.display = 'none';
+}
+
+
+    
+
+function searchMovies() {
+  let input = document.getElementById('searchInput').value.toLowerCase();
+  let container = document.getElementById('featured-movies');
+  container.innerHTML = ''; // Clear previous results
+
+  let filteredMovies = movies.filter(movie => movie.name.toLowerCase().includes(input));
+
+  if (filteredMovies.length === 0) {
+    container.innerHTML = `<p style="color: white; font-size: 18px;">No movies found.</p>`;
+  } else {
+    filteredMovies.forEach(movie => {
+      const movieCard = document.createElement('div');
+      movieCard.classList.add('movie-card');
+      movieCard.innerHTML = `
+        <img src="${movie.image}" alt="${movie.name}" class="movie-image">
+        <h4 class="movie-title">${movie.name}</h4>
+        <p class="movie-rating">${movie.rating}</p>
+        <p class="movie-description">${movie.description}</p>
+        <a href="${movie.link}" class="btn watch-btn">Watch</a>
+      `;
+      container.appendChild(movieCard);
+    });
+  }
+}
+
+function closeSearch() {
+  let searchBox = document.getElementById('searchContainer');
+  searchBox.style.display = 'none';
+  document.getElementById('searchInput').value = ''; // Clear input
+
+  // Reset movies list
+  resetMovies();
+}
+
+function resetMovies() {
+  let container = document.getElementById('featured-movies');
+  container.innerHTML = ''; // Clear the section first
+
+  movies.forEach(movie => {
+    const movieCard = document.createElement('div');
+    movieCard.classList.add('movie-card');
+    movieCard.innerHTML = `
+      <img src="${movie.image}" alt="${movie.name}" class="movie-image">
+      <h4 class="movie-title">${movie.name}</h4>
+      <p class="movie-rating">${movie.rating}</p>
+      <p class="movie-description">${movie.description}</p>
+      <a href="${movie.link}" class="btn watch-btn">Watch</a>
+    `;
+    container.appendChild(movieCard);
+  });
+}
+
+
+    // Function to display movies dynamically
+    function displayMovies(movieList) {
+      const container = document.getElementById('featured-movies');
+      container.innerHTML = ""; // Clear previous content
+
+      movieList.forEach(movie => {
+        const movieCard = document.createElement('div');
+        movieCard.classList.add('movie-card');
+        movieCard.innerHTML = `
+          <img src="${movie.image}" alt="${movie.name}" class="movie-image">
+          <h4 class="movie-title">${movie.name}</h4>
+          <p class="movie-rating">${movie.rating}</p>
+          <p class="movie-description">${movie.description}</p>
+          <a href="${movie.link}" class="btn watch-btn">Watch</a>
+        `;
+        container.appendChild(movieCard);
+      });
+    }
+
+    // Load all movies on page load
+    window.onload = function () {
+      displayMovies(movies);
+    };
+  </script>
 </body>
 </html>
